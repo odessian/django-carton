@@ -179,7 +179,6 @@ class Cart(object):
         """
         cart_representation = {}
         for item in self.items:
-            import pdb;pdb.set_trace()
             # JSON serialization: object attribute should be a string
             product_source_id = item.product.id
             product_type = item.product_type
