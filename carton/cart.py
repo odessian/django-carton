@@ -26,7 +26,7 @@ class CartItem(object):
 
     def to_dict(self):
         return {
-            'name': self.product.title if self.product_type == settings.PRODUCT_TYPE.Resource else product.name,
+            'name': self.product.title if self.product_type == settings.PRODUCT_TYPE.Resource else self.product.name,
             'product_module': "{}.{}".format(self.product.__class__.__module__, self.product.__class__.__name__),
             'product_type': self.product_type,
             'product_source_id': self.product.id,
