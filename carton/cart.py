@@ -15,6 +15,7 @@ class CartItem(object):
     A cart item, with the associated product, its quantity and its price.
     """
     def __init__(self, product, product_type, quantity, price):
+        self.name = product.title if product_type == settings.PRODUCT_TYPE.Resource else product.name
         self.product = product
         self.product_type = product_type
         self.quantity = int(quantity)
@@ -25,6 +26,7 @@ class CartItem(object):
 
     def to_dict(self):
         return {
+            'name': self.product.title if self.product_type == settings.PRODUCT_TYPE.Resource else product.name,
             'product_module': "{}.{}".format(self.product.__class__.__module__, self.product.__class__.__name__),
             'product_type': self.product_type,
             'product_source_id': self.product.id,
